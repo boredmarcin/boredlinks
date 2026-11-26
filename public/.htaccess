@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Wszystko przez HTTPS (lokalny `php -S` nie czyta .htaccess)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f5f7fa">
+<title>BoredLinks - {{title_setup}}</title>
+<link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/app.css">
+<script type="module" src="/assets/app.js"></script>
+</head>
+<body data-msg="{{js}}">
+<header class="top narrow">
+  <a class="brand" href="/"><img src="/assets/logo.png" width="114" height="24" alt="boredlinks"></a>
+  <div class="top-actions">
+    <div class="seg" role="group" aria-label="{{language}}"><button type="button" data-lang="pl">PL</button><button type="button" data-lang="en">EN</button></div>
+  </div>
+</header>
+<main class="page narrow">
+  <header class="intro">
+    <span class="badge"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#key"/></svg></span>
+    <h1>{{setup_h1}}</h1>
+    <p>{{setup_lead}}</p>
+  </header>
+
+  <form id="setup" class="card">
+    <label for="setup-password" class="label">{{password}}</label>
+    <div class="pw"><input id="setup-password" type="password" autocomplete="new-password" minlength="12" required autofocus><button type="button" class="eye" data-eye aria-pressed="false"><svg class="i on" aria-hidden="true"><use href="/assets/icons.svg#eye"/></svg><svg class="i off" aria-hidden="true"><use href="/assets/icons.svg#eye-off"/></svg></button></div>
+    <p class="hint">{{setup_hint}}</p>
+    <p id="error" class="error" role="alert" hidden></p>
+    <div class="actions"><button type="submit" class="btn primary">{{setup_button}}</button></div>
+  </form>
+</main>
+<footer class="credit">Made with <span class="heart" aria-label="love">&#9829;</span> by <a href="https://boredmarcin.com">boredmarcin</a></footer>
+</body>
+</html>

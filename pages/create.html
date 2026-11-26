@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f5f7fa">
+<title>BoredLinks - {{title_create}}</title>
+<link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/app.css">
+<script type="module" src="/assets/app.js"></script>
+</head>
+<body data-msg="{{js}}">
+<header class="top">
+  <a class="brand" href="/"><img src="/assets/logo.png" width="114" height="24" alt="boredlinks"></a>
+  <div class="top-actions">
+    <button id="logout" type="button" class="link">{{logout}}</button>
+    <div class="seg" role="group" aria-label="{{language}}"><button type="button" data-lang="pl">PL</button><button type="button" data-lang="en">EN</button></div>
+  </div>
+</header>
+<main class="page">
+  <header class="intro">
+    <span class="badge"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg></span>
+    <h1>{{create_h1}}</h1>
+    <p>{{create_lead}}</p>
+  </header>
+
+  <form id="create" class="card">
+    <label for="text" class="label">{{content}}</label>
+    <textarea id="text" required maxlength="10000" rows="7" autofocus spellcheck="false" placeholder="{{content_placeholder}}"></textarea>
+    <div id="count" class="meta" aria-live="polite"></div>
+
+    <fieldset class="choices">
+      <legend class="label">{{valid_for}}</legend>
+      <label class="choice"><input type="radio" name="ttl" value="3600"><span class="badge"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#timer"/></svg></span><span class="choice-title">{{ttl_1h}}</span><span class="choice-desc">{{ttl_1h_desc}}</span></label>
+      <label class="choice"><input type="radio" name="ttl" value="86400" checked><span class="badge"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#sun"/></svg></span><span class="choice-title">{{ttl_1d}}</span><span class="choice-desc">{{ttl_1d_desc}}</span></label>
+      <label class="choice"><input type="radio" name="ttl" value="604800"><span class="badge"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#calendar"/></svg></span><span class="choice-title">{{ttl_7d}}</span><span class="choice-desc">{{ttl_7d_desc}}</span></label>
+    </fieldset>
+
+    <label for="password" class="label">{{password}} <span class="muted">{{optional}}</span></label>
+    <div class="pw"><input id="password" type="password" autocomplete="new-password"><button type="button" class="eye" data-eye aria-pressed="false"><svg class="i on" aria-hidden="true"><use href="/assets/icons.svg#eye"/></svg><svg class="i off" aria-hidden="true"><use href="/assets/icons.svg#eye-off"/></svg></button></div>
+    <p class="hint">{{password_hint}}</p>
+
+    <p id="error" class="error" role="alert" hidden></p>
+    <div class="actions"><button type="submit" class="btn primary"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#lock"/></svg>{{create_button}}</button></div>
+  </form>
+
+  <section id="result" class="card" hidden>
+    <div class="card-head"><span class="badge"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#check"/></svg></span><h2>{{link_ready}}</h2></div>
+    <div class="linkbox">
+      <input id="link" type="text" readonly aria-label="{{link_label}}">
+      <button id="copy" type="button" class="btn primary"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg><span>{{copy}}</span></button>
+    </div>
+    <p id="copy-status" class="hint" role="status"></p>
+    <p class="hint"><span id="expires"></span> {{link_hint}}</p>
+    <p id="result-note" class="hint strong" hidden>{{link_password_note}}</p>
+    <div class="actions"><a class="btn outline" href="/">{{new_message}}</a></div>
+  </section>
+</main>
+<footer class="credit">Made with <span class="heart" aria-label="love">&#9829;</span> by <a href="https://boredmarcin.com">boredmarcin</a></footer>
+</body>
+</html>

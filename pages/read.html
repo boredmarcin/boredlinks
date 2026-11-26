@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f5f7fa">
+<title>BoredLinks - {{title_read}}</title>
+<link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/app.css">
+<script type="module" src="/assets/app.js"></script>
+</head>
+<body data-msg="{{js}}">
+<header class="top">
+  <a class="brand" href="/"><img src="/assets/logo.png" width="114" height="24" alt="boredlinks"></a>
+  <div class="top-actions">
+    <div class="seg" role="group" aria-label="{{language}}"><button type="button" data-lang="pl">PL</button><button type="button" data-lang="en">EN</button></div>
+  </div>
+</header>
+<main class="page">
+  <header class="intro">
+    <span class="badge"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#mail"/></svg></span>
+    <h1>{{read_h1}}</h1>
+    <p>{{read_lead}}</p>
+  </header>
+
+  <section id="read" class="card">
+    <div id="step-reveal">
+      <p class="first">{{read_ready}}</p>
+      <div class="actions"><button id="reveal" type="button" class="btn primary"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#eye"/></svg>{{reveal}}</button></div>
+    </div>
+
+    <form id="step-password" hidden>
+      <label for="pw" class="label">{{password}}</label>
+      <div class="pw"><input id="pw" type="password" autocomplete="off" required><button type="button" class="eye" data-eye aria-pressed="false"><svg class="i on" aria-hidden="true"><use href="/assets/icons.svg#eye"/></svg><svg class="i off" aria-hidden="true"><use href="/assets/icons.svg#eye-off"/></svg></button></div>
+      <p class="hint">{{password_from_sender}}</p>
+      <div class="actions"><button type="submit" class="btn primary"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#key"/></svg>{{decrypt}}</button></div>
+    </form>
+
+    <div id="step-message" hidden>
+      <label for="message" class="label">{{message}}</label>
+      <textarea id="message" readonly rows="7" spellcheck="false"></textarea>
+      <p id="copy-status" class="hint" role="status"></p>
+      <p class="hint">{{message_gone_hint}}</p>
+      <div class="actions"><button id="copy" type="button" class="btn primary"><svg class="i" aria-hidden="true"><use href="/assets/icons.svg#copy"/></svg><span>{{copy}}</span></button></div>
+    </div>
+
+    <p id="error" class="error" role="alert" hidden></p>
+  </section>
+</main>
+<footer class="credit">Made with <span class="heart" aria-label="love">&#9829;</span> by <a href="https://boredmarcin.com">boredmarcin</a></footer>
+</body>
+</html>
